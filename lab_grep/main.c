@@ -172,7 +172,7 @@ int main(int argc, char** argv) {
             }
         }
         
-        if (strFits && !flag_v || !strFits && flag_v) {
+        if ((strFits && !flag_v) || (!strFits && flag_v)) {
             if (flag_A_value || flag_C_value) {
                 size_t j = flag_A_value != 0 ? flag_A_value : flag_C_value;
                 for (; j > 0; --j) {

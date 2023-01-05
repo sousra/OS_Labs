@@ -1,4 +1,5 @@
-all:
-	gcc main.c -o grep
+all: compile
+compile: main.c
+	gcc main.c -o grep -Wall -Wextra -Werror
 clean:
-	rm programm
+	rm grep
