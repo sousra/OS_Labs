@@ -1,5 +1,6 @@
 all: compile
-compile: main.c
-	gcc main.c -o prog
+compile: main_pipe.c main_fifo.c
+	gcc main_pipe.c -o prog_pipe
+	gcc main_fifo.c -o prog_fifo
 clean:
-	rm prog
+	rm prog_pipe prog_fifo
