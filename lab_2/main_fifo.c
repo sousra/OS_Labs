@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
             return -1;
         }
         write(fd, str, strlen(str));
+        close(fd);
         wait(NULL);
     }
     else if (cpid == 0) {
@@ -42,8 +43,10 @@ int main(int argc, char** argv) {
             return -1;
         }
         int readNum = read(fd, msg, 1024);
+        close(fd);
         if (readNum == -1) {
             fprintf(stderr, "read error\n");
+            return -1;
         }
         msg[readNum] = '\0';
         printf("[CHILD]: PID=%d, PPID=%d, time=%ld, received message:\n%s", getpid(), getppid(), time(NULL), msg);
