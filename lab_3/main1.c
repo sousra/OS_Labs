@@ -18,7 +18,7 @@ void sigintHandler(int s) {
         perror("ftok");
         exit(-1);
     }
-    int shmid = shmget(shmkey, SHMSIZE, 0644 | IPC_CREAT);
+    int shmid = shmget(shmkey, SHMSIZE, 0);
     if (shmid == -1) {
         perror("shmget");
         exit(-1);
